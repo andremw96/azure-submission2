@@ -75,7 +75,7 @@ Enter the URL to an image, then click the <strong>Analyze image</strong> button.
 <br><br>
 Image to analyze:
 <input type="text" name="inputImage" id="inputImage"
-    value="https://azuresubmission2.blob.core.windows.net/blockblobsblzmyq/bill-gates.jpg" />
+    value="https://azuresubmission2.blob.core.windows.net/blockblobsuyanbi/bill-gates-africa.jpg" />
 <button onclick="processImage()">Analyze image</button>
 <br><br>
 <div id="wrapper" style="width:1020px; display:table;">
