@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Analyze Sample</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
  
@@ -57,6 +57,15 @@
         .done(function(data) {
             // Show formatted JSON on webpage.
             $("#responseTextArea").val(JSON.stringify(data, null, 2));
+
+            // Extract and display the caption and confidence from the first caption in the description object.
+            if (data.description && data.description.captions) {
+                var caption = data.description.captions[0];
+                
+                if (caption.text && caption.confidence) {
+                    $("#captionID").val(JSON.stringify(data.description.captions[0].text, null, 2));
+                }
+            }
         })
  
         .fail(function(jqXHR, textStatus, errorThrown) {
@@ -89,7 +98,11 @@ Image to analyze:
         Source image:
         <br><br>
         <img id="sourceImage" width="400" />
+
+        <textarea id="captionID" class="UIInput"
+                  style="width:400px; height:100px; background-color: lightblue; font-size: 2em; font-weight: bold;;"></textarea>
     </div>
+
 </div>
 </body>
 </html>
